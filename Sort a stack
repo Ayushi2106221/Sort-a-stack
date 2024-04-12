@@ -1,0 +1,26 @@
+void insertSorted(stack<int> &s, int element){
+    //base case
+    if(s.empty() || s.top()<=element){
+        s.push(element);
+        return;
+    }
+    
+    int a=s.top();
+    s.pop();
+    insertSorted(s,element);
+    s.push(a);
+}
+
+void SortedStack :: sort()
+{
+   //base case
+   if(s.empty())
+   return;
+   
+   int a=s.top();
+   s.pop();
+   SortedStack ::sort();
+   insertSorted(s,a);
+   
+   
+}
